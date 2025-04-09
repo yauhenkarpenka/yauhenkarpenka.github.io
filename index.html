@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Telegram WebApp</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            text-align: center;
+        }
+        button {
+            background-color: #0088cc;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to WebApp!</h1>
+    <p>Try these buttons:</p>
+
+    <button onclick="alert('Button 1 clicked!')">Button 1</button>
+    <button onclick="alert('Button 2 clicked!')">Button 2</button>
+    <button onclick="Telegram.WebApp.close()">Close</button>
+
+    <script>
+        Telegram.WebApp.expand(); // Раскрываем на весь экран
+        Telegram.WebApp.enableClosingConfirmation(); // Запрос подтверждения при закрытии
+
+        // Получаем данные от Telegram
+        const initData = Telegram.WebApp.initData;
+        const user = Telegram.WebApp.initDataUnsafe.user;
+
+        console.log('Init Data:', initData);
+        if (user) {
+            console.log('User:', user);
+        }
+    </script>
+</body>
+</html>
